@@ -1,0 +1,83 @@
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #282833;
+}
+
+.batery{
+    height: 110px;
+    width: 225px;
+    border: 8px solid #55ff3f;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 12px;
+}
+
+.batery::before{
+    content: "";
+    position: absolute;
+    margin: auto;
+    height: 55px;
+    width: 20px;
+    background-color: #55ff3f;
+    right: -25px;
+    top: 0;
+    bottom: 0;
+    border-radius: 0 7px 7px 0;
+}
+
+.batery::after{
+    content: "";
+    position: absolute;
+    height: 80px;
+    width: 40px;
+    background-color: #55ff3f;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    border-radius: 5px;
+    box-shadow: 50px 0 #52ff3b, 100px 0 #1eff00, 150px 0 #18d200;
+    animation: charge 6s infinite;
+}
+
+@keyframes charge{
+    22%{
+        box-shadow: 50px 0 transparent, 100px 0 transparent, 150px 0 transparent;
+    }
+    25%{
+        box-shadow: 50px 0 #52ff3b, 100px 0 transparent, 150px 0 transparent;
+    }
+    30%{
+        box-shadow: 50px 0 transparent, 100px 0 transparent, 150px 0 transparent;
+    }
+    47%{
+        box-shadow: 50px 0 #52ff3b, 100px 0 transparent, 150px 0 transparent;
+    }
+    50%{
+        box-shadow: 50px 0 #52ff3b, 100px 0 #1eff00, 150px 0 transparent;
+    }
+    55%{
+        box-shadow: 50px 0 #52ff3b, 100px 0 transparent, 150px 0 transparent;
+    }
+    72%{
+        box-shadow: 50px 0 #52ff3b, 100px 0 #1eff00, 150px 0 transparent;
+    }
+    75%{
+        box-shadow: 50px 0 #52ff3b, 100px 0 #1eff00, 150px 0 #18d200;
+    }
+    80%{
+        box-shadow: 50px 0 #52ff3b, 100px 0 #1eff00, 150px 0 transparent;
+    }
+    95%{
+        box-shadow: 50px 0 #52ff3b, 100px 0 #1eff00, 150px 0 #18d200;
+    }
+}

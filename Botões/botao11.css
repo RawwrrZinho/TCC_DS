@@ -1,0 +1,55 @@
+.container{
+    background: rgb(23, 23, 83);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+h2{
+    color: white;
+    width: 490px;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 12px;
+    animation: digitando 2s steps(15), piscar 0.5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 1.5px solid;
+}
+
+@keyframes digitando{
+    from {
+        width: 0;
+    }
+}
+
+@keyframes piscar{
+    50%{
+        border-color: transparent;
+    }
+}
+
+.btn{
+    transition: 1s;
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 80px;
+    border-radius: 5px;
+
+}
+
+.sim{
+    transition: 1s;
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 80px;
+    border-radius: 5px;
+}

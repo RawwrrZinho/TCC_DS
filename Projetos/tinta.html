@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tinta.css">
+    <title>Tinta Click</title>
+</head>
+<body>
+    <h2>Click com Tinta</h2>
+
+    <script>
+        let images = [
+        'url("imagens/clr01.png")',
+        'url("imagens/clr02.png")',
+        'url("imagens/clr03.png")',
+        'url("imagens/clr04.png")',
+        'url("imagens/clr05.png")',
+        'url("imagens/clr06.png")',
+        'url("imagens/clr07.png")',
+        'url("imagens/clr08.png")',
+        'url("imagens/clr09.png")',
+        'url("imagens/clr10.png")',
+        'url("imagens/clr11.png")',
+        'url("imagens/clr12.png")',
+        'url("imagens/clr13.png")',
+        'url("imagens/clr14.png")',
+        'url("imagens/clr15.png")',
+        'url("imagens/clr16.png")'
+        ];
+        let body = document.querySelector('body');
+        body.onclick= function(e){
+            let x = e.pageX - e.target.offsetLeft;
+            let y = e.pageY - e.target.offsetTop;
+        
+            let splash = document.createElement('span');
+            splash.style.left = x + 'px';
+            splash.style.top = y + 'px';
+
+            let bg = images[Math.floor(Math.random() *
+            images.length)];
+            splash.style.backgroundImage = bg;
+
+            this.appendChild(splash);
+
+            setTimeout(() => {
+                splash.remove()
+           }, 4000);
+        }
+        
+    </script>
+</body>
+</html>

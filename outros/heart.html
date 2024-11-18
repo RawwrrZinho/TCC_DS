@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="heart.css">
+    <title> Coração q brilha </title>
+</head>
+<body>
+    <canvas id="canvas" width="1400" height="600"></canvas>
+    <script>
+        var canvas = document.getElementById("canvas");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+    var gl = canvas.getContext('webgl');
+    if(!gl){
+        console.error("unable to initialize WebGl.");
+    }
+
+    var time = 0.0;
+
+    var vertexSource = `
+    atribute vec2 position;
+    void main(){
+        gl_Position = vec4(position, 0.0, 1.0);
+    }`;
+
+    var fragmentSource =`
+    precision highp float;
+    
+    uniform float width;
+    uniform float height;
+    vec2 resolution = vec2(width, height);
+
+    uniform float time;
+    
+    #define POINT_COUNT 8
+
+    vec2.points[POINT_COUNT];
+    const float speed = -0.5;
+    const float len = 0.25;
+    float intensity = 0.9;
+    float radius = 0.015;
+
+    //https://www.shadertoy.com/view/MlkcDD
+    //Singed distanceto a quadratic bezier
+    float sdbezier(vec2 pos, vec2 A, vec2 B, vec2 C){
+        vec2 a = B - A;
+        vec2 b = A - 2.0*B + C;
+        vec2 c = a * 2.0;
+        vec2 d = A - pos;
+
+        float kk = 1.0 / dot(b,b);
+        float kx = kk * dot(a,b);
+        float ky = kk * (2.0*dot(a,a)+dot(d,b)) / 3.0;
+        float kz = kk * dot(d,a);
+
+        float res = 0.0;
+
+        float p = ky - kx*kx;
+        float p3 = p*p*p;
+        float q = kx*(2.0*kx*kx - 3.0*ky) + kz;
+        float n = q*q + 4.0*p3;
+    }
+    `
+
+
+    //minuto 1:19 do video https://youtu.be/8QnSco7OxpQ
+    
+    </script>
+</body>
+</html>

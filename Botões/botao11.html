@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="botao11.css">
+    <title> Terra Plana!! </title>
+</head>
+<body>
+    <div class="container">
+
+        <h2> Alê é Pai do GUI? </h2>
+
+        <button class="sim" onclick="sim()">  SIM </button>
+
+
+
+        <button class="btn" onclick="desviar(this)" onmouseover="desviar(this)"> NÃO </button>
+
+    </div>
+</body>
+
+<script>
+
+    function sim(){
+        alert("Sábia escolha, você é uma pessoa inteligente d-('-'d-)")
+    }
+
+    function desviar(t){
+        var btn = t; 
+        btn.style.position = 'absolute';
+        btn.style.bottom = geraPosicao(10, 90);
+        btn.style.left = geraPosicao(10, 90);
+        console.log("Opa, aki n...");
+    }
+
+    function geraPosicao(min, max){
+        return (Math.random() * (max - min) + min) + "%";
+    }
+
+</script>
+
+</html>
